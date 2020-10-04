@@ -9,12 +9,10 @@
 /* Begin PBXBuildFile section */
 		E2E3A183252A75880085857A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3A182252A75880085857A /* AppDelegate.swift */; };
 		E2E3A185252A75880085857A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3A184252A75880085857A /* SceneDelegate.swift */; };
-		E2E3A187252A75880085857A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3A186252A75880085857A /* ViewController.swift */; };
 		E2E3A18A252A75880085857A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2E3A188252A75880085857A /* Main.storyboard */; };
 		E2E3A18C252A75890085857A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2E3A18B252A75890085857A /* Assets.xcassets */; };
 		E2E3A18F252A75890085857A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2E3A18D252A75890085857A /* LaunchScreen.storyboard */; };
-		E2E3A19A252A75890085857A /* MyLocationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3A199252A75890085857A /* MyLocationsTests.swift */; };
-		E2E3A1A5252A75890085857A /* MyLocationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3A1A4252A75890085857A /* MyLocationsUITests.swift */; };
+		E2E3A1B9252A76630085857A /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2E3A1B8252A76630085857A /* CurrentLocationViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,17 +36,13 @@
 		E2E3A17F252A75880085857A /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2E3A182252A75880085857A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E2E3A184252A75880085857A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E2E3A186252A75880085857A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E2E3A189252A75880085857A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2E3A18B252A75890085857A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2E3A18E252A75890085857A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2E3A190252A75890085857A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2E3A195252A75890085857A /* MyLocationsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyLocationsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2E3A199252A75890085857A /* MyLocationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationsTests.swift; sourceTree = "<group>"; };
-		E2E3A19B252A75890085857A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E2E3A1A0252A75890085857A /* MyLocationsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyLocationsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2E3A1A4252A75890085857A /* MyLocationsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationsUITests.swift; sourceTree = "<group>"; };
-		E2E3A1A6252A75890085857A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2E3A1B8252A76630085857A /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				E2E3A181252A75880085857A /* MyLocations */,
-				E2E3A198252A75890085857A /* MyLocationsTests */,
-				E2E3A1A3252A75890085857A /* MyLocationsUITests */,
 				E2E3A180252A75880085857A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -101,31 +93,13 @@
 			children = (
 				E2E3A182252A75880085857A /* AppDelegate.swift */,
 				E2E3A184252A75880085857A /* SceneDelegate.swift */,
-				E2E3A186252A75880085857A /* ViewController.swift */,
 				E2E3A188252A75880085857A /* Main.storyboard */,
 				E2E3A18B252A75890085857A /* Assets.xcassets */,
 				E2E3A18D252A75890085857A /* LaunchScreen.storyboard */,
 				E2E3A190252A75890085857A /* Info.plist */,
+				E2E3A1B8252A76630085857A /* CurrentLocationViewController.swift */,
 			);
 			path = MyLocations;
-			sourceTree = "<group>";
-		};
-		E2E3A198252A75890085857A /* MyLocationsTests */ = {
-			isa = PBXGroup;
-			children = (
-				E2E3A199252A75890085857A /* MyLocationsTests.swift */,
-				E2E3A19B252A75890085857A /* Info.plist */,
-			);
-			path = MyLocationsTests;
-			sourceTree = "<group>";
-		};
-		E2E3A1A3252A75890085857A /* MyLocationsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E2E3A1A4252A75890085857A /* MyLocationsUITests.swift */,
-				E2E3A1A6252A75890085857A /* Info.plist */,
-			);
-			path = MyLocationsUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +232,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2E3A187252A75880085857A /* ViewController.swift in Sources */,
 				E2E3A183252A75880085857A /* AppDelegate.swift in Sources */,
+				E2E3A1B9252A76630085857A /* CurrentLocationViewController.swift in Sources */,
 				E2E3A185252A75880085857A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,7 +242,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2E3A19A252A75890085857A /* MyLocationsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +249,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2E3A1A5252A75890085857A /* MyLocationsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

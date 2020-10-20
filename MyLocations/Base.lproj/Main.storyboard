@@ -183,7 +183,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="fR2-1d-1Q3" kind="unwind" unwindAction="categoryPickerDidPickCategory:" id="b1U-Ig-pvy"/>
+                                            <segue destination="mX2-0t-Dg8" kind="show" identifier="PickCategory" id="18C-lH-FXc"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -344,7 +344,6 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DbL-Al-BE6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="fR2-1d-1Q3" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3128.985507246377" y="-224.33035714285714"/>
         </scene>
@@ -373,6 +372,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="O3K-YI-fbp" kind="unwind" identifier="PickedCategory" unwindAction="categoryPickerDidPickCategory:" id="afw-nO-afE"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -383,6 +385,7 @@
                     <navigationItem key="navigationItem" id="E2h-27-sTR"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NAQ-D4-h8a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="O3K-YI-fbp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3975" y="-224"/>
         </scene>

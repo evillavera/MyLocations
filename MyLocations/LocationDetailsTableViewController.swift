@@ -91,6 +91,7 @@ class LocationDetailsViewController: UITableViewController {
     }
     
     @IBAction func categoryPickerDidPickCategory(_ segue: UIStoryboardSegue) {
+        print("Clicked category")
         let controller = segue.source as! CategoryPickerViewController
         categoryName = controller.selectedCategoryName
         categoryLabel.text = categoryName

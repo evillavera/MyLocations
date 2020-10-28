@@ -6,16 +6,50 @@
 //
 
 import UIKit
-
+import CoreData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "DataModel")
+        container.loadPersistentStores{(storeDescription, error)
+            in
+            if let error = error {
+                fatalError("Could not load data store \(error)")
+            }
+        }
+        return container
+    }()
 
-
+    lazy var managedObjectContext: NSManagedObjectContext = self.persistentContainer.viewContext
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        let tabController = window!.rootViewController
+//            as! UITabBarController
+//        if let tabViewControllers = tabController.viewControllers {
+//            let navController = tabViewControllers[0]
+//                as! UINavigationController
+//            let controller = navController.viewControllers.first
+//                as! CurrentLocationViewController
+//            controller.managedObjectContext = managedObjectContext
+//        }
+        print(applicationDocumentsDirectory)
         return true
     }
+    
+//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions:
+//    [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+//        let tabController = window!.rootViewController as! UITabBarController
+//        if let tabViewControllers = tabController.viewControllers {
+//            let navController = tabViewControllers[0] as! UINavigationController
+//            let controller = navController.viewControllers.first as! CurrentLocationViewController
+//            controller.managedObjectContext = managedObjectContext
+//        }
+//        return true
+//    }
+    
 
     // MARK: UISceneSession Lifecycle
 

@@ -6,11 +6,43 @@
 //
 
 import UIKit
+import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
+    
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "DataModel")
+        container.loadPersistentStores{(storeDescription, error)
+            in
+            if let error = error {
+                fatalError("Could not load data store \(error)")
+            }
+        }
+        return container
+    }()
+    
+    lazy var managedObjectContext: NSManagedObjectContext = self.persistentContainer.viewContext
 
+    func listenForFatalCoreDataNotifications(){
+        NotificationCenter.default.addObserver(forName: CoreDataSaveFailedNotification, object: nil, queue: OperationQueue.main, using: {notification in
+            let message = """
+There was a fatal error in the app and it cannot continue. Press OK to terminate the app. Sorry for the inconvenience.
+"""
+            let alert = UIAlertController(title: "Internal Error", message: message, preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "OK", style: .default){_ in
+                let exception = NSException(
+                    name: NSExceptionName.internalInconsistencyException, reason: "Fatal Core Data error", userInfo: nil)
+                exception.raise()
+            }
+            alert.addAction(action)
+            
+            let tabController = self.window!.rootViewController!
+            tabController.present(alert, animated: true, completion: nil)
+        })
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -26,9 +58,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // The scene may re-connect later, as its session was not necessarily discarded (see `application:didDiscardSceneSessions` instead).
     }
 
+    //maybe this one
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        let tabController = window!.rootViewController
+            as! UITabBarController
+        if let tabViewControllers = tabController.viewControllers {
+            let navController = tabViewControllers[0]
+                as! UINavigationController
+            let controller = navController.viewControllers.first
+                as! CurrentLocationViewController
+            controller.managedObjectContext = managedObjectContext
+        }
+        
+        listenForFatalCoreDataNotifications()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {

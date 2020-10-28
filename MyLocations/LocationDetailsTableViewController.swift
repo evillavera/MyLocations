@@ -7,12 +7,17 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 class LocationDetailsViewController: UITableViewController {
 
+    var managedObjectContext: NSManagedObjectContext!
+    
     var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
     var placemark: CLPlacemark?
     var categoryName = "No Category"
+    
+    var date = Date()
     
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -30,12 +35,34 @@ class LocationDetailsViewController: UITableViewController {
     
     @IBAction func done(){
         //navigationController?.popViewController(animated: true)
+//        let hudView = HudView.hud(inView: navigationController!.view, animated: true)
+//        hudView.text = "Tagged"
+//        afterDelay(0.6, run:{
+//            hudView.hide()
+//            self.navigationController?.popViewController(animated: true)
+//        })
+        //1
         let hudView = HudView.hud(inView: navigationController!.view, animated: true)
         hudView.text = "Tagged"
-        afterDelay(0.6, run:{
-            hudView.hide()
-            self.navigationController?.popViewController(animated: true)
-        })
+        let location = Location(context: managedObjectContext)
+        //2
+        location.locationDescription = descriptionTextView.text
+        location.category = categoryName
+        location.latitude = coordinate.latitude
+        location.longitude = coordinate.longitude
+        location.date = date
+        location.placemark = placemark
+        //3
+        do{
+            try managedObjectContext.save()
+            afterDelay(0.6){
+                hudView.hide()
+                self.navigationController?.popViewController(animated: true)
+            }
+        }catch {
+            //4
+            fatalCoreDataError(error)
+        }
     }
 
     @IBAction func cancel(){
@@ -49,6 +76,7 @@ class LocationDetailsViewController: UITableViewController {
         categoryLabel.text = categoryName
         latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
         longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
+        dateLabel.text = format(date: date)
         
         if let placemark = placemark{
             addressLabel.text = string(from: placemark)
